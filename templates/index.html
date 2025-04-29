@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Shipping File Interface (SFI)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Prime Shipping File Interface (SFI)</h1>
+
+    <div class="container">
+        <!-- Prime Map Section -->
+        <section id="prime-map-section">
+            <h2>Prime Number Map</h2>
+            <button id="view-primes-btn">View/Refresh Prime Map</button>
+            <div id="prime-map-display" class="output-area" style="display: none;">
+                Loading...
+            </div>
+        </section>
+
+        <!-- Generate Data Section -->
+        <section id="generate-section">
+            <h2>Generate Shipment Data</h2>
+            <form id="generate-form">
+                <label for="generate-count">Number of Shipments:</label>
+                <input type="number" id="generate-count" name="count" value="100" min="1" max="50000">
+                <button type="submit">Generate Data</button>
+                <span id="generate-status" class="status-indicator"></span>
+            </form>
+            <div id="generate-output" class="output-area results-box"></div>
+        </section>
+
+        <!-- Filter Data Section -->
+        <section id="filter-section">
+            <h2>Filter Shipment Data</h2>
+            <form id="filter-form">
+                <div id="filter-controls">
+                    <p>Select filter criteria (based on Prime Map):</p>
+                    <!-- Filter controls will be populated by JavaScript -->
+                </div>
+                <button type="submit" disabled>Filter Data</button> <!-- Disabled until prime map is loaded -->
+                 <span id="filter-status" class="status-indicator"></span>
+            </form>
+            <div id="filter-output" class="output-area results-box"></div>
+        </section>
+
+        <!-- Decode Vector Section -->
+        <section id="decode-section">
+            <h2>Decode SFI Vector</h2>
+            <form id="decode-form">
+                <label for="decode-vector">SFI Vector:</label>
+                <input type="number" id="decode-vector" name="vector" required min="1">
+                <button type="submit">Decode Vector</button>
+                <span id="decode-status" class="status-indicator"></span>
+            </form>
+            <div id="decode-output" class="output-area"></div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>SFI Web Application v1.0</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
